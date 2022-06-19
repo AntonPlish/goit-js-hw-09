@@ -58,7 +58,7 @@ function addLeadingZero(value){
 
 const startTimer = () => {
   btnStart.disabled = true;
-  timerId = setInterval(() => {
+  timerIdstartTimer = setInterval(() => {
     startTime = selectedDate - Date.now();
     const data = convertMs(startTime);
     dataDays.textContent = addLeadingZero(data.days);
@@ -66,8 +66,7 @@ const startTimer = () => {
     dataMinutes.textContent = addLeadingZero(data.minutes);
     dataSeconds.textContent = addLeadingZero(data.seconds);
     if (data.days === 0 && data.hours === 0 && data.minutes === 0 && data.seconds === 0) {
-      clearInterval(timerId);
-      console.log(`Interval with id ${timerId} has stopped!`);
+      clearInterval(timerIdstartTimer);
     };
   }, 0);
 
