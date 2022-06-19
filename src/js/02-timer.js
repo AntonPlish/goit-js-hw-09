@@ -67,6 +67,7 @@ const startTimer = () => {
     dataSeconds.textContent = addLeadingZero(data.seconds);
     if (data.days === 0 && data.hours === 0 && data.minutes === 0 && data.seconds === 0) {
       clearInterval(timerId);
+      console.log(`Interval with id ${timerId} has stopped!`);
     };
   }, 0);
 
