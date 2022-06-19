@@ -13,6 +13,7 @@ import Notiflix from 'notiflix';
 
 let selectedDate = null;
 let startTime = null;
+let timerId = null;
 const btnStart = document.querySelector('button[data-start]');
 btnStart.setAttribute("disabled", true);
 const styles = document.querySelector('.field');
@@ -58,7 +59,7 @@ function addLeadingZero(value){
 
 const startTimer = () => {
   btnStart.disabled = true;
-  timerIdstartTimer = setInterval(() => {
+  timerId = setInterval(() => {
     startTime = selectedDate - Date.now();
     const data = convertMs(startTime);
     dataDays.textContent = addLeadingZero(data.days);
@@ -66,7 +67,7 @@ const startTimer = () => {
     dataMinutes.textContent = addLeadingZero(data.minutes);
     dataSeconds.textContent = addLeadingZero(data.seconds);
     if (data.days === 0 && data.hours === 0 && data.minutes === 0 && data.seconds === 0) {
-      clearInterval(timerIdstartTimer);
+      clearInterval(timerId);
     };
   }, 0);
 
